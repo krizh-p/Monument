@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Unsplash Random Image",
+  "version": "1.0",
+  "description": "This extension displays a random image from Unsplash API and shows the time in the middle of the screen.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
