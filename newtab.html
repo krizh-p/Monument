@@ -12,6 +12,19 @@
     <div id="greetingBar">
       <p><span id="greeting">Hello, </span><span id="username">Click me to enter a name</span></p>
     </div>
+
+    <div id="pomodoroBar" style="display: none;">
+      <p>
+        <span style="font-size: 1em;">
+          <input type="text" id="sessionInputMinute" placeholder="25" class="timeInput" maxlength="2">
+        </span>
+        <span id="pomodoroTimer">:</span>
+        <span style="font-size: 1em;">
+          <input type="text" id="sessionInputSecond" placeholder="00" class="timeInput" maxlength="2">
+        </span>
+      </p>
+    </div>
+    
     <div class="menu-icon">
       <span></span>
       <span></span>
@@ -35,5 +48,6 @@
 <script src="../js/image.js"></script>
 <script src="../js/center.js"></script>
 <script src="../js/menu.js"></script>
+<script src="../js/pomodoro.js"></script>
 
 </html>
