@@ -9,12 +9,37 @@ function getRandomImage() {
     var downloadedImages = JSON.parse(localStorage.getItem('downloadedImages'));
     var currentImageIndex = parseInt(localStorage.getItem('currentImageIndex'));
 
-    const imageUrl = "https://source.unsplash.com/random/1920x1080/?modern"
+    const imageUrl = "https://source.unsplash.com/random/1920x1080/?minimal";
+
     const image = new Image();
     image.src = imageUrl;
     image.onload = () => {
         document.body.style.backgroundImage = `url(${imageUrl})`;
+        document.body.insertAdjacentHTML('beforeend', '<div class="vignette-layer"></div>');
     };
+
+    // CSS styles
+    const styles = `
+        body {
+            position: relative;
+        }
+
+        .vignette-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0) 75%, rgba(0,0,0,0.6) 115%);
+            pointer-events: none;
+        }
+    `;
+
+    // Create a style element and append the CSS styles
+    const styleElement = document.createElement('style');
+    styleElement.textContent = styles;
+    document.head.appendChild(styleElement);
+
     currentImageIndex = (currentImageIndex + 1) % downloadedImages.length;
     localStorage.setItem('currentImageIndex', currentImageIndex);
 }

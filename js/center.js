@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Make the username editable
 username.addEventListener('dblclick', () => {
     username.setAttribute('contentEditable', true);
+    username.focus()
 });
 
 username.addEventListener('blur', () => {
