@@ -51,14 +51,7 @@ menuIcon.addEventListener('click', () => {
         const popupContainer = document.getElementById('popupContainer');
 
         pomodoroTimer.addEventListener('click', (event) => {
-            pomodoroMenuOn = !pomodoroMenuOn;
-            if (pomodoroMenuOn) {
-                // Hide the pop-up container
-                popupContainer.style.display = 'none';
-            } else {
-                popupContainer.style.display = 'block'; // Show the pop-up container
-                showPomodoro()
-            }
+            showPomodoro()
         });
     } else {
         // Remove the pomodoro and clock elements from the timeBar container
@@ -86,49 +79,32 @@ function closePomodoro() {
 // Give popupContainer children.
 var pomodoroOpened = false
 function showPomodoro() {
-
-    if (!pomodoroOpened) { // If the timer hasn't started
-        pomodoroOpened = !pomodoroOpened
-        // Create the timer element
-        const timer = document.createElement('h1');
-        timer.textContent = '25:00:00';
-        timer.style.textAlign = 'center';
-        timer.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.5)';
-        timer.style.fontSize = "5em"
-        
-        // Create the start/stop button
-        const startStopButton = document.createElement('button');
-        startStopButton.textContent = 'Start';
-        startStopButton.style.display = 'block';
-        startStopButton.style.margin = '0 auto';
-        startStopButton.style.fontSize = "3em"
-    
-        timer.classList.add("popupContent")
-        startStopButton.classList.add("popupContent")
-        // Append the timer and start/stop button to the popup container
-        popupContainer.appendChild(timer);
-        popupContainer.appendChild(startStopButton);
-    
-        // Handle the click event on the start/stop button
-        let interval;
-        let timeLeft = getTimeRemaining(25, 0, 0);
-        startStopButton.addEventListener('click', () => {
-            if (interval) {
-                // Stop the timer
-                clearInterval(interval);
-                interval = null;
-            } else {
-                // Start the timer
-                interval = setInterval(() => {
-                    timeLeft--;
-                    const hours = Math.floor(timeLeft / 3600);
-                    const minutes = Math.floor((timeLeft % 3600) / 60);
-                    const seconds = timeLeft % 60;
-                    timer.textContent = `${hours}:${minutes}:${seconds}`;
-                }, 1000);
-            }
-        });
-
-
+    if (pomodoro) {
+        timeBar.removeChild(pomodoro);
     }
+
+    if (clock) {
+        timeBar.removeChild(clock);
+    }
+    window.location.href = 'html/pomodoro.html';
+    // Handle the click event on the start/stop button
+    let interval;
+    let timeLeft = getTimeRemaining(25, 0, 0);
+    startStopButton.addEventListener('click', () => {
+        if (interval) {
+            // Stop the timer
+            clearInterval(interval);
+            interval = null;
+        } else {
+            // Start the timer
+            interval = setInterval(() => {
+                timeLeft--;
+                const hours = Math.floor(timeLeft / 3600);
+                const minutes = Math.floor((timeLeft % 3600) / 60);
+                const seconds = timeLeft % 60;
+                timer.textContent = `${hours}:${minutes}:${seconds}`;
+            }, 1000);
+        }
+    });
+
 }

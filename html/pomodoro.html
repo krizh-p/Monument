@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Splash</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="pomodoro.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="time"></h1>
+    <div id="greetingBar">
+      <!-- <p><span id="greeting">Session</span><span id="username">Break</span></p> -->
+      <p>
+        <span style="font-size: 1em;">
+          <input type="text" id="sessionInputMinute" placeholder="25" class="timeInput" maxlength="2">
+        </span>
+        <span id="greeting">:</span>
+        <span style="font-size: 1em;">
+          <input type="text" id="sessionInputSecond" placeholder="00" class="timeInput" maxlength="2">
+        </span>
+        <span id="greeting">|</span>
+        <span style="font-size: 1em;">
+          <input type="text" id="breakInputMinute" placeholder="03" class="timeInput" maxlength="2">
+        </span>
+        <span id="greeting">:</span>
+        <span style="font-size: 1em;">
+          <input type="text" id="breakInputSecond" placeholder="00" class="timeInput" maxlength="2">
+        </span>
+      </p>
+      <p>
+        <span id="greeting" style="font-size: 3.55em;">Session Length</span>
+        <span id="greeting" style="font-size: 3.55em;">|</span>
+        <span id="greeting" style="font-size: 3.55em;">Break Length</span>
+      </p>
+    </div>
+    <div class="menu-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div id="timeBar">
+      <div id="popupContainer">
+        <img src="../assets/x.svg" id="closePopupContainer" style="position: absolute; top: 10px; right: 10px;">
+        <div class="popupContent">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<body>
+  <div class="quote-container">
+    <p id="quote"></p>
+    <p id="author"></p>
+  </div>
+</body>
+
+<script src="../js/image.js"></script>
+<script src="../js/pomodoro/center.js"></script>
+<script src="../js/pomodoro/menu.js"></script>
+
+</html>

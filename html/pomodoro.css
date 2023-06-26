@@ -1,0 +1,21 @@
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+input[type="time"]::-webkit-datetime-edit-ampm-field {
+    display: none;
+  }
+ 
+.timeInput {
+    font-size: 8em;
+    width: 1.25em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    line-height: 1;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    z-index: 0;
+    text-decoration: underline;
+}
