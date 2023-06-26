@@ -9,7 +9,7 @@ function getRandomImage() {
     var downloadedImages = JSON.parse(localStorage.getItem('downloadedImages'));
     var currentImageIndex = parseInt(localStorage.getItem('currentImageIndex'));
 
-    const imageUrl = "https://source.unsplash.com/random/1920x1080/?wallpaper,landscape,modern"
+    const imageUrl = "https://source.unsplash.com/random/1920x1080/?modern"
     const image = new Image();
     image.src = imageUrl;
     image.onload = () => {
