@@ -156,6 +156,7 @@ body {
     z-index: 0;
 }
 
+#noteIcon,
 #pomodoroIcon,
 #clockIcon {
     font-size: 2em;
