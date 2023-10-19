@@ -24,7 +24,7 @@ body {
     height: 4px;
     background-color: white;
     border-radius: 4px;
-    transition: all 1s ease;
+    transition: all 0.2s ease;
 }
 
 .menu-icon.active span:nth-child(1) {
