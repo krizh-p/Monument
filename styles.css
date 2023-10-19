@@ -169,3 +169,106 @@ body {
     z-index: 0;
     transition: width 0.2s, height 0.2s;
 }
+
+
+/* Transitions: */
+.stickynote, .stickynote span {
+    -webkit-transition: all .2s, line-height .1s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+}
+
+/* Below is the exact CSS from the tutorial, with text styling added */
+.stickynote span {
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    top: -1em;
+    padding: 1em;
+    width: 8em;
+    height: 8em;
+    border-radius: 1em;
+    background-color: #ccc; /* Fallback background color in case the gradient doesn't work */
+
+    /* For compatibility, browser-specific gradients using colors #CCCCCC and #EEEEEE */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#eeeeee');
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#eee));
+    background-image: -webkit-linear-gradient(top, #ccc, #eee);
+    background-image:    -moz-linear-gradient(top, #ccc, #eee);
+    background-image:     -ms-linear-gradient(top, #ccc, #eee);
+    background-image:      -o-linear-gradient(top, #ccc, #eee);
+    background-image:         linear-gradient(top, #ccc, #eee);
+}
+
+.stickynote {    
+    display: block; /* Can also be "inline-block" */
+    position: absolute;
+    width: 10em;
+    height: 9.15em; /* Must be SMALLER than the span*/
+    background-color: #000;
+    cursor: move; /* Change cursor to indicate it's draggable */
+
+    /* Let's make the text pretty: */
+    font: 1em/1.3em Courier, 'Courier New', monospace;
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+
+    /* Drop shadows, browser-specific for compatibility */
+    -webkit-box-shadow: 0 0 .75em #000;
+    -moz-box-shadow: 0 0 .75em #000;
+    box-shadow: 0 0 .75em #000;
+
+    /* Rounded corners, browser-specific for compatibility. */
+    -webkit-border-radius: 1.4em;
+    -webkit-border-top-right-radius: 1.5em 10em;
+    -webkit-border-top-left-radius: 1.5em 10em;
+    -moz-border-radius: 1.4em;
+    -moz-border-radius-topright: 1.5em 10em;
+    -moz-border-radius-topleft: 1.5em 10em;
+
+    /* CSS3 standard rounded corners */
+    border-radius: 1.4em; /* Slightly larger border-radius than the note */
+    border-top-right-radius: 1.5em 10em; /* Small x + big y = nice tapered shape */
+    border-top-left-radius: 1.5em 10em; /* Ditto above */
+}
+
+.stickynote:hover span {
+    height: 7.5em;  /* Height shortens */
+
+    /* Squash the bottom borders a bit */
+    -webkit-border-bottom-right-radius: 1.25em .75em;
+    -webkit-border-bottom-left-radius: 1.25em .75em;
+    -moz-border-radius-bottomright: 1.25em .75em;
+    -moz-border-radius-bottomleft: 1.25em .75em;
+    border-bottom-right-radius: 1.25em .75em;
+    border-bottom-left-radius: 1.25em .75em;
+
+    /* Same browser-specific gradients and start color #CCCCCC, lighter end color #FFFFFF */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#cccccc', EndColorStr='#ffffff');
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#fff));
+    background-image: -webkit-linear-gradient(top, #ccc, #fff);
+    background-image:    -moz-linear-gradient(top, #ccc, #fff);
+    background-image:     -ms-linear-gradient(top, #ccc, #fff);
+    background-image:      -o-linear-gradient(top, #ccc, #fff);
+    background-image:         linear-gradient(top, #ccc, #fff);
+}
+
+.stickynote:hover {
+    /* Decrease line-height and lighten text for added effect: */
+    line-height: 1.2em;
+    color: #222;
+
+    /* Increase Y offset of the shadow */
+    -webkit-box-shadow: 0 0 .75em #000;
+    -moz-box-shadow: 0 0 .75em #000;
+    box-shadow: 0 .5em 1em #000;
+
+    /* Increase the bottom rounded borders a LOT */
+    -webkit-border-bottom-right-radius: 3.5em;
+    -webkit-border-bottom-left-radius: 3.5em;
+    -moz-border-radius-bottomright: 3.5em;
+    -moz-border-radius-bottomleft: 3.5em;
+    border-bottom-left-radius: 3.5em;
+    border-bottom-right-radius: 3.5em;
+}
