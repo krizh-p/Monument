@@ -6,7 +6,7 @@ noteIcon.addEventListener('click', loadStickyNote);
 
 // Load existing sticky notes when page is opened
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     var existingNotes = JSON.parse(localStorage.getItem('notesList')) || {};
     for (let noteID in existingNotes) {
         var note = existingNotes[noteID];
@@ -19,13 +19,14 @@ document.addEventListener("DOMContentLoaded", () => {
             loadedNote.appendChild(textArea);
         }
         addMarkdown(loadedNote, textArea);
+        addPin(loadedNote);
         loadedNote.querySelector('textarea').style.display = "none";
     }
 })
 
 function createNote(noteID, text, coords, size) {
     var textArea = document.createElement("textarea");
-    
+
     const note = document.createElement("div");
     note.className = "sticky";
     var xCord = Math.random() * (window.innerWidth - 500);
@@ -54,6 +55,13 @@ function createNote(noteID, text, coords, size) {
     note.appendChild(textArea);
 
     return note;
+}
+
+function addPin(note) {
+    var pin = document.createElement("img");
+    pin.src = "../assets/pin.png";
+    pin.dataset.isPin = "1";
+    note.appendChild(pin);
 }
 
 function addDragAndResize(note) {
@@ -92,12 +100,12 @@ function addDragAndResize(note) {
             const newHeight = initialHeight + (e.clientY - startY);
             note.style.width = newWidth + "px";
             note.style.height = newHeight + "px";
-            
+
             // update local storage
             const notesList = JSON.parse(localStorage.getItem('notesList')) || {};
             notesList[note.dataset.noteID].size = [parseInt(note.style.width), parseInt(note.style.height)];
             localStorage.setItem('notesList', JSON.stringify(notesList));
-            
+
         }
     });
 
@@ -113,6 +121,7 @@ function addMarkdown(note, textArea) {
         const markdownText = textArea.value;
         note.innerHTML = md.render(markdownText);
         note.appendChild(textArea);
+        addPin(note);
         textArea.style.display = "none";
 
         // update local storage
@@ -139,7 +148,7 @@ function loadStickyNote(noteID, text, coords, size) {
     addDragAndResize(note);
 
     addMarkdown(note, textArea);
-    
+
 
 
     var noteObj = {
