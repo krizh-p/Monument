@@ -1,9 +1,13 @@
 {
   "manifest_version": 3,
-  "name": "Unsplash Random Image",
-  "version": "1.0",
-  "description": "This extension displays a random image from Unsplash API and shows the time in the middle of the screen.",
+  "name": "Monument",
+  "author": "@krizh-p",
+  "version": "2.3",
+  "description": "A lightweight and simple, yet elegant, new tab for Chrome with useful productivity features.",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
+  },
+  "icons": {
+    "128": "assets/icon.png"
   }
 }
