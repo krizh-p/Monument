@@ -61,6 +61,22 @@ function addPin(note) {
     var pin = document.createElement("img");
     pin.src = "../assets/pin.png";
     pin.dataset.isPin = "1";
+    pin.dataset.noteID = note.dataset.noteID;
+
+    pin.addEventListener('dragend', () => {
+        const notesList = JSON.parse(localStorage.getItem('notesList'));
+
+        if (notesList[pin.dataset.noteID])
+            delete notesList[pin.dataset.noteID];
+        else
+            console.log("Error fetching and deleting Note " + pin.dataset.noteID)
+
+        localStorage.setItem('notesList', JSON.stringify(notesList))
+        note.classList.add("stickyDel");
+        // note.style.opacity = 0;
+        // note.style.display = "none";
+    });
+
     note.appendChild(pin);
 }
 
