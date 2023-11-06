@@ -19,5 +19,6 @@ menuIcon.addEventListener('click', () => {
 });
 
 function toggleBar(size) {
-    pomodoroIcon.style.width = noteIcon.style.width = clockIcon.style.width = timeBar.style.height = size;
+    // pomodoroIcon.style.width = noteIcon.style.width = clockIcon.style.width = timeBar.style.height = size;
+    noteIcon.style.width = timeBar.style.height = size;
 }
