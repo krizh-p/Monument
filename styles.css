@@ -156,6 +156,7 @@ body {
     z-index: 0;
 }
 
+#noteIcon,
 #pomodoroIcon,
 #clockIcon {
     font-size: 2em;
@@ -167,4 +168,96 @@ body {
     position: relative;
     z-index: 0;
     transition: width 0.2s, height 0.2s;
+}
+
+.sticky {
+    position: absolute;
+    background-color: #ffcc00;
+    width: 200px;
+    height: 200px;
+    resize: both;
+    overflow: auto;
+    /* border-top: 1em solid #c0c0c0; */
+    /* Shadow */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    /* Slight rotation for authenticity */
+    transform: rotate(-3deg);
+    padding: .5em;
+    font-size: 1.5em;
+    animation: fadeAnimation 1s forwards;
+}
+
+.stickyDel {
+    animation: removeSticky 1s forwards;
+}
+
+.sticky img[data-is-pin="1"] {
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    top: 5%;
+    left: 85%;
+}
+
+.sticky img[data-is-pin="1"]:hover {
+    animation: unpinHover 0.5s ease forwards;
+    content: url('../assets/unpin.png');
+}
+
+.sticky img[data-is-pin="1"]:not(:hover) {
+    animation: pinHover 0.5s ease forwards;
+    content: url('../assets/pin.png');
+}
+
+@keyframes removeSticky {
+    
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        top: 50%;
+    }
+}
+
+@keyframes fadeAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes unpinHover {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    100% {
+        transform: translateY(-.2em) translateX(.2em);
+    }
+}
+
+@keyframes pinHover {
+    0% {
+        transform: translateY(-.2em) translateX(.2em);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
+
+.sticky textarea {
+    border: none;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    font-size: 1.5em;
+    background-color: #ffcc00;
+    /* Yellow background */
 }
