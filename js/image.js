@@ -6,9 +6,6 @@ const timeBar = document.getElementById('timeBar');
 const greetingBar = document.getElementById('greetingBar');
 
 function getRandomImage() {
-    var downloadedImages = JSON.parse(localStorage.getItem('downloadedImages'));
-    var currentImageIndex = parseInt(localStorage.getItem('currentImageIndex'));
-
     const imageUrl = "https://source.unsplash.com/random/1920x1080/?modern";
 
     const image = new Image();
@@ -39,9 +36,6 @@ function getRandomImage() {
     const styleElement = document.createElement('style');
     styleElement.textContent = styles;
     document.head.appendChild(styleElement);
-
-    currentImageIndex = (currentImageIndex + 1) % downloadedImages.length;
-    localStorage.setItem('currentImageIndex', currentImageIndex);
 }
 
 // Handle the hover effect on the quote element
