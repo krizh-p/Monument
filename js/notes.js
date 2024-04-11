@@ -1,3 +1,11 @@
+// import marked from 'marked';
+const renderer = new marked.Renderer();
+renderer.checkbox = function(checked) {
+  return `<input type="checkbox" ${checked ? 'checked' : ''} disabled>`;
+}
+
+marked.use({ renderer });
+
 var zIndexCounter = (localStorage.getItem('zIndexCounter')) ? localStorage.getItem('zIndexCounter') : 0;
 localStorage.setItem('zIndexCounter', zIndexCounter);
 
@@ -11,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let noteID in existingNotes) {
         var note = existingNotes[noteID];
         let loadedNote = loadStickyNote(noteID, note.text, note.coords, note.size);
-        loadedNote.innerHTML = md.render(note.text);
+        // loadedNote.innerHTML = md.render(note.text);
+        loadedNote.innerHTML = marked.parse(note.text);
         // loadedNote.querySelector('textarea').style.display = "none";
         if (!(loadedNote.querySelector('textarea'))) {
             var textArea = document.createElement("textarea");
@@ -135,7 +144,8 @@ function addMarkdown(note, textArea) {
     // Handle Markdown rendering when the textarea loses focus
     textArea.addEventListener("blur", () => {
         const markdownText = textArea.value;
-        note.innerHTML = md.render(markdownText);
+        // note.innerHTML = md.render(markdownText);
+        note.innerHTML = marked.parse(markdownText);
         note.appendChild(textArea);
         addPin(note);
         textArea.style.display = "none";

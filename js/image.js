@@ -6,7 +6,7 @@ const timeBar = document.getElementById('timeBar');
 const greetingBar = document.getElementById('greetingBar');
 
 function getRandomImage() {
-    const imageUrl = "https://source.unsplash.com/random/1920x1080/?modern";
+    const imageUrl = "https://source.unsplash.com/random/1920x1080/?geometry";
 
     const image = new Image();
     image.src = imageUrl;
