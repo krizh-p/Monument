@@ -17,6 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var existingNotes = JSON.parse(localStorage.getItem('notesList')) || {};
     for (let noteID in existingNotes) {
+        // user probably exited without saving state of a note--delete it
+        if (existingNotes[noteID].text === "") {
+            delete existingNotes[noteID];
+            localStorage.setItem("notesList", JSON.stringify(existingNotes));
+            continue;
+        }
         var note = existingNotes[noteID];
         let loadedNote = loadStickyNote(noteID, note.text, note.coords, note.size);
         // loadedNote.innerHTML = md.render(note.text);
@@ -43,10 +49,14 @@ function createNote(noteID, text, coords, size) {
     note.style.left = xCord + "px";
     note.style.top = yCord + "px";
     note.style.zIndex = zIndexCounter++;
+    console.log(noteID)
     if (noteID)
         note.dataset.noteID = noteID;
-    else
-        note.dataset.noteID = (localStorage.getItem('notesList') == null) ? ((1 ^ Date.now()) % 999) : ((localStorage.getItem('notesList').length ^ Date.now()) % 999);
+    else {
+        let numNotes = Object.keys(JSON.parse(localStorage.getItem('notesList'))).length
+        note.dataset.noteID = (localStorage.getItem('notesList') == null) ? 0 : numNotes;
+    }
+    console.log(noteID)
 
     if (size) {
         note.style.width = size[0] + "px";
