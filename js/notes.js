@@ -44,12 +44,14 @@ function createNote(noteID, text, coords, size) {
 
     const note = document.createElement("div");
     note.className = "sticky";
+    
+    // set note location
     var xCord = Math.random() * (window.innerWidth - 500);
     var yCord = Math.random() * (window.innerHeight - 500);
     note.style.left = xCord + "px";
     note.style.top = yCord + "px";
     note.style.zIndex = zIndexCounter++;
-    console.log(noteID)
+    
     if (noteID)
         note.dataset.noteID = noteID;
     else {

@@ -186,6 +186,36 @@ body {
     padding: .5em;
     font-size: 1.5em;
     animation: fadeAnimation 1s forwards;
+    container-type: inline-size;
+}
+
+/* Font-sizing for text inside sticky */
+.sticky > *:not(img):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    font-size: 6cqw;
+}
+/* Header sizes */
+.sticky > h1 {
+    font-size: 11cqw;
+}
+
+.sticky > h2 {
+    font-size: 9cqw;
+}
+
+.sticky > h3 {
+    font-size: 8cqw;
+}
+
+.sticky > h4 {
+    font-size: 7cqw;
+}
+
+.sticky > h5 {
+    font-size: 6cqw;
+}
+
+.sticky > h6 {
+    font-size: 5cqw;
 }
 
 .stickyDel {
