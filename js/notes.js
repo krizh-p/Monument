@@ -55,8 +55,8 @@ function createNote(noteID, text, coords, size) {
     if (noteID)
         note.dataset.noteID = noteID;
     else {
-        let numNotes = Object.keys(JSON.parse(localStorage.getItem('notesList'))).length
-        note.dataset.noteID = (localStorage.getItem('notesList') == null) ? 0 : numNotes;
+        let noteID = crypto.randomUUID();
+        note.dataset.noteID = noteID;
     }
     console.log(noteID)
 

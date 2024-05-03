@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Monument",
   "author": "@krizh-p",
-  "version": "2.3",
+  "version": "3.0",
   "description": "A lightweight and simple, yet elegant, new tab for Chrome with useful productivity features.",
   "chrome_url_overrides": {
     "newtab": "newtab.html"

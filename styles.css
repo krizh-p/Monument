@@ -191,31 +191,31 @@ body {
 
 /* Font-sizing for text inside sticky */
 .sticky > *:not(img):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-    font-size: 6cqw;
+    font-size: 6.6cqw;
 }
-/* Header sizes */
+
 .sticky > h1 {
-    font-size: 11cqw;
+    font-size: 15.2cqw;
 }
 
 .sticky > h2 {
-    font-size: 9cqw;
+    font-size: 10.9cqw;
 }
 
 .sticky > h3 {
-    font-size: 8cqw;
+    font-size: 10.6cqw;
 }
 
 .sticky > h4 {
-    font-size: 7cqw;
+    font-size: 10.3cqw;
 }
 
 .sticky > h5 {
-    font-size: 6cqw;
+    font-size: 10.1cqw;
 }
 
 .sticky > h6 {
-    font-size: 5cqw;
+    font-size: 8.9cqw;
 }
 
 .stickyDel {
