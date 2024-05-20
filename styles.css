@@ -20,6 +20,11 @@ body {
     pointer-events: none;
 }
 
+.exclude-vignette {
+    position: relative;
+    z-index: 1;
+
+  }
 
 .menu-icon {
     position: relative;
@@ -65,12 +70,38 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
+.page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.settings {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+}
+
+.settings > svg {
+    height: 3em;
+    width: 3em;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    flex-grow: 1;
+}
+
+#settingsIcon {
+    transition: transform 0.5s;
+    filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+}
+
+#settingsIcon:hover {
+    transform: rotate(90deg);
 }
 
 #greeting,
