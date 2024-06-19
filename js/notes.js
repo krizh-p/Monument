@@ -58,7 +58,6 @@ function createNote(noteID, text, coords, size) {
         let noteID = crypto.randomUUID();
         note.dataset.noteID = noteID;
     }
-    console.log(noteID)
 
     if (size) {
         note.style.width = size[0] + "px";
