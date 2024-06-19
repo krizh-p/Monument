@@ -58,18 +58,6 @@ body {
     transform: translateY(-10px) rotate(-45deg);
 }
 
-#greetingBar {
-    z-index: 0;
-}
-
-#time {
-    font-size: 10em;
-    color: white;
-    line-height: 0.8;
-    margin: 0;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
 .page {
     display: flex;
     flex-direction: column;
@@ -95,6 +83,25 @@ body {
     flex-grow: 1;
 }
 
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -0.125rem;
+    margin-left: 0.125rem;
+}
+
+.caret-off::before {
+    display: none;
+}
+
+.caret-off::after {
+    display: none;
+}
+
 #settingsIcon {
     transition: transform 0.5s;
     filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
@@ -102,6 +109,18 @@ body {
 
 #settingsIcon:hover {
     transform: rotate(90deg);
+}
+
+#greetingBar {
+    z-index: 0;
+}
+
+#time {
+    font-size: 10em;
+    color: white;
+    line-height: 0.8;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 #greeting,
